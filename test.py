@@ -3,7 +3,7 @@
 
 import sys
 from os import path as pll 
-
+import os
 print sys.argv
 
 def main():
@@ -18,7 +18,8 @@ def main():
 
 def getfilelist(path):
     if pll.exists(path):
-        pass
+      print  os.listdir(path) 
+
     else:
         print "invaild path"
 

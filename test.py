@@ -1,10 +1,10 @@
 #! /usr/bin/env python
 # coding=utf-8
+
 import sys
 from os import path as pll 
 
 print sys.argv
-
 
 def main():
     print 'ok?'

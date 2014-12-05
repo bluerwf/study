@@ -8,19 +8,18 @@ print sys.argv
 
 def main():
     print 'ok?'
-    if sys.argv[1] == '-ls':
+    if sys.argv[1] == 'ls':
         path = sys.argv[2]
         fl = getfilelist(path, '.py')
-        ff = getdir(path)
         print fl
-        print ff
         for f in fl:
             with open(f) as fh:
                 content = fh.readlines()
                 for line in content:
                     print line,
-    elif sys.argv[1]  == 'lt':
-        getname()
+    elif sys.argv[1]  == 'ld':
+        dirlist = getfilelist(sys.argv[2])
+        print dirlist
     else:
         print 'nothing'
 
@@ -42,21 +41,20 @@ def getfilelist(path,suffix='*'):
         print "invaild path"
 
     #print getfilelist.__name__
-def getdir(path):
+def getdirlist(path):
     if pll.exists(path):
         #print os.listdir(path)
         w = os.walk(path)
-        #flistt = list()
+        dirlist = list()
         while True:
             try:
                 ufo = w.next()
-                files = ufo[1] 
-                for i in files:
-                    p=os.path.join(ufo[0],i)
-                    print p
+                dirs = ufo[1] 
+                for i in dirs:
+                    dirlist.append(os.path.join(ufo[0],i))
             except StopIteration as e:
                 break
-        return p
+        return dirlist 
     else:
         print "invaild path"
 

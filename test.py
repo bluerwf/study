@@ -21,6 +21,33 @@ def main():
     else:
         print 'nothing'
 
+
+from hashlib import md5
+import deco
+@deco.timeit
+#@deco.cache
+def gettoken(nm):
+    return md5(nm).hexdigest()
+
+
+
 if '__main__' == __name__:
-    main()
+    #main()
+    import time
+    t1 = time.time()
+    gettoken('jane')
+    gettoken('jack')
+    gettoken('jane')
+    gettoken('jack')
+    gettoken('jack')
+    gettoken('jane')
+    gettoken('jack')
+    gettoken('jack')
+    gettoken('jane')
+    gettoken('jack')
+    gettoken('ann')
+    gettoken('jack')
+    gettoken('jack')
+    t2 = time.time()
+    print "total: ", t2 - t1
 

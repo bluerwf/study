@@ -1,6 +1,3 @@
-
-
-
 def cache(f):
     dic={}
     def wrpper(name):
@@ -10,7 +7,7 @@ def cache(f):
         else:
             token = dic.get(name)
         print 'ok'
-        return token   
+        return token, dic   
         
     return wrpper
 

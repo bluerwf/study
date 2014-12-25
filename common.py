@@ -12,7 +12,6 @@ def save_dic(path,dic):
 from deco import cache
 
 @cache
-
 def fun(n):
     if n == 0:
         return 1

@@ -3,6 +3,7 @@
 
 import sys
 import time
+import gevent
 from file_class import File
 import common 
 def main():
@@ -73,3 +74,4 @@ print "abce", get_token("abce", 3)
 print "abcd", get_token("abcd", 3)
 time.sleep(4)
 print "abcd", get_token('abcd', 3)
+gevent.spawn(get_token('efg', 3))

@@ -10,7 +10,7 @@ class File(object):
         self.path = path
         self.suffix = suffix
 
-    @property
+    #@property
     def filelist(self):
         #path = path if path else self.path
         path = self.path
@@ -50,10 +50,11 @@ class File(object):
 
 def main():
     print sys.argv
-    thefile = File(sys.argv[2], '*')
+    thefile = File(sys.argv[2], 'py')
     if sys.argv[1] == 'ls':
-        path = sys.argv[2]
-        fl = thefile.getfilelist(path, '.py')
+        #path = sys.argv[2]
+        #fl = thefile.getfilelist(path, '.py')
+        fl = thefile.filelist()
         print fl
         for f in fl:
             with open(f) as fh:

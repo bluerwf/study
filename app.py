@@ -3,12 +3,10 @@
 
 from flask import Flask, Response, request
 import json
-import logging
 
 from file_class import File
 
 app = Flask(__name__)
-#app.logger = logging.getLogger(__name__)
 
 @app.route('/hello', methods=['GET'])
 def hello():
@@ -47,10 +45,8 @@ def _get_files():
     path = request.headers['X-Path']
     suffix = request.headers['X-Suffix']
     f = File(path, suffix)
-    path = f.path
-    suffix = f.suffix
     flist = f.filelist()
-    response = Response(json.dumps({"path": path, "suffix": suffix}),
+    response = Response(json.dumps({path:flist}),
                        status=200,
                        content_type="application/json")
     return response

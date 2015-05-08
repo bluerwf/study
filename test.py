@@ -72,6 +72,46 @@ if '__main__' == __name__:
 print "abcd", get_token("abcd", 3)
 print "abce", get_token("abce", 3)
 print "abcd", get_token("abcd", 3)
-time.sleep(4)
+#time.sleep(4)
 print "abcd", get_token('abcd', 3)
 gevent.spawn(get_token('efg', 3))
+
+a = [1,2,3,4]
+b = [5,6,7]
+
+#def merge(a,b):
+#    l = len(b)
+#    l1 = len(a)
+#    for i in range(l):
+#        if 
+
+def qsort(a,l,h):
+    def _fun(a,l,h):
+        p = a[l]
+        i = l
+        j = h
+        while i < j:
+            while i < j and a[j] > p:
+                j -= 1
+            a[j], a[i] = a[i], a[j]
+            #a[j], p = p, a[j]
+            print "anan in1: ", a
+            while i < j and a[i] <= p:
+                i += 1
+            a[j], a[i] = a[i], a[j]
+            #a[i], p = p, a[i]
+            print "anan in2: ", a
+        return i
+    if l < h:
+        index = _fun(a,l,h)
+        qsort (a,l,index-1)
+        qsort(a, index+1,h)
+
+#a = [5,4,3,2,1]
+#b = [5,4,6,2,1]
+#b = [1, 2, 3, 4, 5, -1]
+b = [1, 2, 3, 1, 5, -1]
+#qsort(a,0,4)
+qsort(b,0,5)
+#print a
+print b

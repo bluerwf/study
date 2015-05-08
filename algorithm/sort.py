@@ -57,10 +57,10 @@ def qsort(a, l, h):
         while i < j:
             while i<j and a[j] > p:
                 j -= 1
-            a[j], p = p, a[j]
+            a[j], a[i] = a[i], a[j]
             while i < j and a[i] <= p:
                 i += 1
-            a[i] ,p = p, a[i]
+            a[i] ,a[j] = a[j], a[i]
         return i
 
     if l < h:
@@ -70,16 +70,16 @@ def qsort(a, l, h):
 
 
 if __name__ == '__main__':
-    a = [6,5,4,3,2,1]
+    a = [-1,6,5,4,0,7,3,2,1]
     b = [1, 8, 6, 10, 5, 6, 3, 4]
     c = [1, 8, 5, 6, 3, 4]
     print a
+    qsort(a, 0, len(a) -1)
+    print a
     # insert(a)
     #a = sort(a)
-    sort_odd_even(a)
-    sort_odd_even(b)
+    #sort_odd_even(a)
+    #sort_odd_even(b)
     #insert(b)
     #qsort(a, 0, len(a) -1)
-    print a
-    print b
     #print count

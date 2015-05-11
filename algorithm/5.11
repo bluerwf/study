@@ -1,20 +1,20 @@
-def qsort(q,l,h):
-   def part(q,l,h):
-      q = q[l]
+def qsort(a,l,h):
+   def part(a,l,h):
+      q = a[l]
       i = l
       j = h
       while i < j:
-         while i < j and q[j] > q:
+         while i < j and a[j] > q:
             j -= 1
-          q[i], q[j] = q[j], q[i]
-         while i< j and q[i] < = q:
-            i +1=1
-          q[i], q[j] = q[j], q[i]
+          a[i], a[j] = a[j], a[i]
+         while i< j and a[i] < = q:
+            i +=1
+          a[i], a[j] = a[j], a[i]
       return i
     
     if l < h:
-       index = part(q,l,h)
-       qsort(q,l, index-1)
-       qsort(q,index+1,h)
+       index = part(a,l,h)
+       qsort(a,l, index-1)
+       qsort(a,index+1,h)
        
        
